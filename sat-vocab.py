@@ -5,7 +5,7 @@ import sys
 
 import urllib2
 import re
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 
 DEFAULT_URL = 'http://sat.collegeboard.org/practice/sat-question-of-the-day'
 CATEGORY_WITH_VOCAB = 'Sentence Completions'
