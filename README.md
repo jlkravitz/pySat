@@ -12,9 +12,11 @@ To run once:
     python sat-vocab.py
 
 To run automatically each day, open the user crontab file.
-Then, enter the cron command at the bottom of the file.
 
     crontab -e
+
+Then, enter the cron command at the bottom of the file.
+
     @daily /path/to/sat-vocab.py
 
 You can also log the output of the script each time it's run.
