@@ -3,21 +3,24 @@
 from os import path
 import sys
 
+from datetime import datetime
 import urllib2
 import re
 from bs4 import BeautifulSoup
 
 DEFAULT_URL = 'http://sat.collegeboard.org/practice/sat-question-of-the-day'
 CATEGORY_WITH_VOCAB = 'Sentence Completions'
-VOCAB_FILE = path.abspath('vocab_words')
-COMMON_WORDS_FILE = path.abspath('common_words')
+
+BASE_PATH = path.dirname(path.abspath(__file__))
+VOCAB_FILE = path.join(BASE_PATH, 'vocab_words')
+COMMON_WORDS_FILE = path.join(BASE_PATH, 'common_words')
 
 def main():
     soup = getSoup()
 
     category = getCategory(soup)
     if not category == CATEGORY_WITH_VOCAB: 
-        print '%s: Unable to retrieve vocabulary words from category \"%s\"' % (sys.argv[0], category)
+        print '%s: %s: Unable to retrieve vocabulary words from category \"%s\"' % (datetime.now(), sys.argv[0], category)
         sys.exit()
 
     vocabWords = getVocabWords(soup)
