@@ -20,7 +20,8 @@ def main():
 
     category = getCategory(soup)
     if not category == CATEGORY_WITH_VOCAB: 
-        print '%s: %s: Unable to retrieve vocabulary words from category \"%s\"' % (datetime.now(), sys.argv[0], category)
+        message = '%s %s: Unable to retrieve vocabulary words from category \"%s\"'
+        print message % (datetime.now().strftime('%D %r'), sys.argv[0], category)
         sys.exit()
 
     vocabWords = getVocabWords(soup)
